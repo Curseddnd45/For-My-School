@@ -18,6 +18,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.npc, function (sprite, otherSpri
         miss_hyde_talk1 = false
     } else if (otherSprite == mySprite3) {
         if (Mrs_Anderson_Tlak1 == 2 && Key == true) {
+            let tilemap5: tiles.TileMapData = null
             story.printCharacterText("*Gasp* You have it!", "Mrs Anderson")
             story.printCharacterText("Thankyou so much!", "Mrs Anderson")
             info.changeScoreBy(1)
@@ -141,6 +142,7 @@ scene.onOverlapTile(SpriteKind.Player, tileUtil.door2, function (sprite, locatio
     tiles.placeOnRandomTile(mySprite, tileUtil.door2)
     if (tileUtil.currentTilemap() == tilemap3) {
         mySprite.x += 16
+        game.showLongText("The Office and Corridor", DialogLayout.Bottom)
     } else {
         mySprite.x += -16
         game.showLongText("The Library", DialogLayout.Bottom)
@@ -311,7 +313,7 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 info.onScore(1, function () {
 	
 })
-tileUtil.onMapLoaded(function (tilemap6) {
+tileUtil.onMapLoaded(function (tilemap5) {
     if (tileUtil.currentTilemap() == tilemap1) {
         sprites.destroy(mySprite2)
         tileUtil.coverAllTiles(tileUtil.door0, assets.tile`myTile17`)
@@ -342,10 +344,6 @@ tileUtil.onMapLoaded(function (tilemap6) {
         tileUtil.coverAllTiles(tileUtil.door1, assets.tile`myTile23`)
         tileUtil.coverAllTiles(tileUtil.door2, assets.tile`myTile23`)
     } else if (tileUtil.currentTilemap() == tilemap42) {
-        sprites.destroy(mySprite3)
-        tileUtil.coverAllTiles(tileUtil.door2, assets.tile`myTile23`)
-        tileUtil.coverAllTiles(tileUtil.door3, assets.tile`myTile27`)
-    } else if (tileUtil.currentTilemap() == tilemap5) {
         mySprite3 = sprites.create(img`
             . . . . . f f 4 4 f f . . . . . 
             . . . . f 5 4 5 5 4 5 f . . . . 
@@ -365,7 +363,7 @@ tileUtil.onMapLoaded(function (tilemap6) {
             . . . . . f f b b f f . . . . . 
             `, SpriteKind.npc)
         tiles.placeOnRandomTile(mySprite3, tileUtil.object3)
-        tileUtil.coverAllTiles(tileUtil.door3, assets.tile`myTile23`)
+        tileUtil.coverAllTiles(tileUtil.door2, assets.tile`myTile23`)
         tileUtil.coverAllTiles(tileUtil.object3, assets.tile`myTile27`)
     }
 })
@@ -459,7 +457,6 @@ let mySprite3: Sprite = null
 let mySprite2: Sprite = null
 let Mrs_Anderson_Tlak1 = 0
 let mySprite: Sprite = null
-let tilemap5: tiles.TileMapData = null
 let tilemap42: tiles.TileMapData = null
 let tilemap3: tiles.TileMapData = null
 let tilemap2: tiles.TileMapData = null
@@ -476,8 +473,7 @@ miss_hyde_talk1 = true
 tilemap1 = tilemap`level2`
 tilemap2 = tilemap`level3`
 tilemap3 = tilemap`level0`
-tilemap42 = tilemap`level1`
-tilemap5 = tilemap`level`
+tilemap42 = tilemap`level`
 mySprite = sprites.create(img`
     . . . . . . . . . . . . . . . . 
     . . . . . . . . c c . . . . . . 
@@ -504,7 +500,6 @@ controller.moveSprite(mySprite)
 tileUtil.connectMaps(tilemap1, tilemap2, MapConnectionKind.Door1)
 tileUtil.connectMaps(tilemap1, tilemap3, MapConnectionKind.Door2)
 tileUtil.connectMaps(tilemap3, tilemap42, MapConnectionKind.Door3)
-tileUtil.connectMaps(tilemap42, tilemap5, MapConnectionKind.Door4)
 tileUtil.createSpritesOnTiles(assets.tile`tilePath5`, img`
     . . . . . f f f f . . . . . . . 
     . . . f f e e e e f f . . . . . 
