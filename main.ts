@@ -313,60 +313,6 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
 info.onScore(1, function () {
 	
 })
-tileUtil.onMapLoaded(function (tilemap5) {
-    if (tileUtil.currentTilemap() == tilemap1) {
-        sprites.destroy(mySprite2)
-        tileUtil.coverAllTiles(tileUtil.door0, assets.tile`myTile17`)
-        tileUtil.coverAllTiles(tileUtil.door1, assets.tile`myTile24`)
-    } else if (tileUtil.currentTilemap() == tilemap2) {
-        tileUtil.coverAllTiles(tileUtil.door0, assets.tile`myTile14`)
-        tileUtil.coverAllTiles(tileUtil.object1, assets.tile`myTile15`)
-        mySprite2 = sprites.create(img`
-            . . . . f f f f . . . . . 
-            . . f f c c c c f f . . . 
-            . f f c c c c c c f f . . 
-            f f c c c c c c c c f f . 
-            f f c c f c c c c c c f . 
-            f f f f f c c c f c c f . 
-            f f f f c c c f c c f f . 
-            f f f f f f f f f f f f . 
-            f f f f f f f f f f f f . 
-            . f f f f f f f f f f . . 
-            . f f f f f f f f f f . . 
-            f e f f f f f f f f e f . 
-            e 4 f 2 2 2 2 2 2 c 4 e . 
-            e e f 4 4 4 4 4 4 f e e . 
-            . . . f f f f f f . . . . 
-            . . . f f . . f f . . . . 
-            `, SpriteKind.npc)
-        tiles.placeOnRandomTile(mySprite2, tileUtil.object1)
-    } else if (tileUtil.currentTilemap() == tilemap3) {
-        tileUtil.coverAllTiles(tileUtil.door1, assets.tile`myTile23`)
-        tileUtil.coverAllTiles(tileUtil.door2, assets.tile`myTile23`)
-    } else if (tileUtil.currentTilemap() == tilemap42) {
-        mySprite3 = sprites.create(img`
-            . . . . . f f 4 4 f f . . . . . 
-            . . . . f 5 4 5 5 4 5 f . . . . 
-            . . . f e 4 5 5 5 5 4 e f . . . 
-            . . f d 5 e 4 4 4 4 e 5 d f . . 
-            . . f 5 5 5 5 5 5 5 5 5 5 f . . 
-            . f 5 5 e d 5 e e 5 d e 5 5 f . 
-            . f 5 5 f f e e e e f f 5 5 f . 
-            . f d d f b f e e f b f d d f . 
-            . f d d e 1 f 4 4 f 1 e d d f . 
-            f f d d f 4 4 4 4 4 4 f d d f f 
-            f d d f f f e e e e f f f d d f 
-            . f e e f b d d d d b f e e f . 
-            . . e 4 c d d d d d d c 4 e . . 
-            . . e f b d b d b d b b f e . . 
-            . . . f f 1 d 1 d 1 d f f . . . 
-            . . . . . f f b b f f . . . . . 
-            `, SpriteKind.npc)
-        tiles.placeOnRandomTile(mySprite3, tileUtil.object3)
-        tileUtil.coverAllTiles(tileUtil.door2, assets.tile`myTile23`)
-        tileUtil.coverAllTiles(tileUtil.object3, assets.tile`myTile27`)
-    }
-})
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     characterAnimations.loopFrames(
     mySprite,
@@ -442,6 +388,60 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
     500,
     characterAnimations.rule(Predicate.MovingDown)
     )
+})
+tileUtil.onMapLoaded(function (tilemap5) {
+    if (tileUtil.currentTilemap() == tilemap1) {
+        sprites.destroy(mySprite2)
+        tileUtil.coverAllTiles(tileUtil.door0, assets.tile`myTile17`)
+        tileUtil.coverAllTiles(tileUtil.door1, assets.tile`myTile24`)
+    } else if (tileUtil.currentTilemap() == tilemap2) {
+        tileUtil.coverAllTiles(tileUtil.door0, assets.tile`myTile14`)
+        tileUtil.coverAllTiles(tileUtil.object1, assets.tile`myTile15`)
+        mySprite2 = sprites.create(img`
+            . . . . f f f f . . . . . 
+            . . f f c c c c f f . . . 
+            . f f c c c c c c f f . . 
+            f f c c c c c c c c f f . 
+            f f c c f c c c c c c f . 
+            f f f f f c c c f c c f . 
+            f f f f c c c f c c f f . 
+            f f f f f f f f f f f f . 
+            f f f f f f f f f f f f . 
+            . f f f f f f f f f f . . 
+            . f f f f f f f f f f . . 
+            f e f f f f f f f f e f . 
+            e 4 f 2 2 2 2 2 2 c 4 e . 
+            e e f 4 4 4 4 4 4 f e e . 
+            . . . f f f f f f . . . . 
+            . . . f f . . f f . . . . 
+            `, SpriteKind.npc)
+        tiles.placeOnRandomTile(mySprite2, tileUtil.object1)
+    } else if (tileUtil.currentTilemap() == tilemap3) {
+        tileUtil.coverAllTiles(tileUtil.door1, assets.tile`myTile23`)
+        tileUtil.coverAllTiles(tileUtil.door2, assets.tile`myTile23`)
+    } else if (tileUtil.currentTilemap() == tilemap42) {
+        mySprite3 = sprites.create(img`
+            . . . . . f f 4 4 f f . . . . . 
+            . . . . f 5 4 5 5 4 5 f . . . . 
+            . . . f e 4 5 5 5 5 4 e f . . . 
+            . . f d 5 e 4 4 4 4 e 5 d f . . 
+            . . f 5 5 5 5 5 5 5 5 5 5 f . . 
+            . f 5 5 e d 5 e e 5 d e 5 5 f . 
+            . f 5 5 f f e e e e f f 5 5 f . 
+            . f d d f b f e e f b f d d f . 
+            . f d d e 1 f 4 4 f 1 e d d f . 
+            f f d d f 4 4 4 4 4 4 f d d f f 
+            f d d f f f e e e e f f f d d f 
+            . f e e f b d d d d b f e e f . 
+            . . e 4 c d d d d d d c 4 e . . 
+            . . e f b d b d b d b b f e . . 
+            . . . f f 1 d 1 d 1 d f f . . . 
+            . . . . . f f b b f f . . . . . 
+            `, SpriteKind.npc)
+        tiles.placeOnRandomTile(mySprite3, tileUtil.object3)
+        tileUtil.coverAllTiles(tileUtil.door2, assets.tile`myTile23`)
+        tileUtil.coverAllTiles(tileUtil.object3, assets.tile`myTile27`)
+    }
 })
 scene.onOverlapTile(SpriteKind.Player, tileUtil.door3, function (sprite, location) {
     tileUtil.loadConnectedMap(MapConnectionKind.Door4)
