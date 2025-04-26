@@ -341,6 +341,7 @@ tileUtil.onMapLoaded(function (tilemap6) {
         tileUtil.coverAllTiles(tileUtil.door1, assets.tile`myTile23`)
         tileUtil.coverAllTiles(tileUtil.door2, assets.tile`myTile23`)
     } else if (tileUtil.currentTilemap() == tilemap42) {
+        sprites.destroy(mySprite3)
         tileUtil.coverAllTiles(tileUtil.door2, assets.tile`myTile23`)
         tileUtil.coverAllTiles(tileUtil.door3, assets.tile`myTile27`)
     } else if (tileUtil.currentTilemap() == tilemap5) {
@@ -467,6 +468,9 @@ let name = ""
 let list: string[] = []
 list = ["Evil Sorcery Books "]
 name = game.askForString("What is your name?")
+color.setPalette(
+color.Black
+)
 miss_hyde_talk1 = true
 tilemap1 = tilemap`level2`
 tilemap2 = tilemap`level3`
@@ -495,6 +499,9 @@ Mrs_Anderson_Tlak1 = 1
 tiles.setCurrentTilemap(tilemap1)
 tiles.placeOnRandomTile(mySprite, assets.tile`myTile4`)
 scene.cameraFollowSprite(mySprite)
+color.startFadeFromCurrent(color.GrayScale, 3000)
+pause(3000)
+color.startFadeFromCurrent(color.Arcade, 3000)
 controller.moveSprite(mySprite)
 tileUtil.connectMaps(tilemap1, tilemap2, MapConnectionKind.Door1)
 tileUtil.connectMaps(tilemap1, tilemap3, MapConnectionKind.Door2)
