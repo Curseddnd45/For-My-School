@@ -23,6 +23,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.npc, function (sprite, otherSpri
             info.changeScoreBy(1)
             music.play(music.melodyPlayable(music.powerUp), music.PlaybackMode.InBackground)
             Mrs_Anderson_Tlak1 = 3
+            tileUtil.setWallAt(tilemap5, tiles.getTileLocation(3, 3), false)
         } else if (Mrs_Anderson_Tlak1 == 1) {
             story.startCutscene(function () {
                 story.printCharacterText("Hiya!", "Mrs Anderson")
@@ -499,9 +500,6 @@ Mrs_Anderson_Tlak1 = 1
 tiles.setCurrentTilemap(tilemap1)
 tiles.placeOnRandomTile(mySprite, assets.tile`myTile4`)
 scene.cameraFollowSprite(mySprite)
-color.startFadeFromCurrent(color.GrayScale, 3000)
-pause(3000)
-color.startFadeFromCurrent(color.Arcade, 3000)
 controller.moveSprite(mySprite)
 tileUtil.connectMaps(tilemap1, tilemap2, MapConnectionKind.Door1)
 tileUtil.connectMaps(tilemap1, tilemap3, MapConnectionKind.Door2)
@@ -525,4 +523,7 @@ tileUtil.createSpritesOnTiles(assets.tile`tilePath5`, img`
     . . . . f f f f f f . . . . . . 
     . . . . f f . . f f . . . . . . 
     `, SpriteKind.npc)
+color.startFadeFromCurrent(color.GrayScale, 3000)
+pause(3000)
+color.startFadeFromCurrent(color.Arcade, 3000)
 story.printCharacterText("Move with arrow buttons.")
