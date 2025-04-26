@@ -221,9 +221,6 @@ controller.left.onEvent(ControllerButtonEvent.Pressed, function () {
     characterAnimations.rule(Predicate.MovingLeft)
     )
 })
-info.onScore(2, function () {
-	
-})
 scene.onOverlapTile(SpriteKind.Player, tileUtil.door1, function (sprite, location) {
     tileUtil.loadConnectedMap(MapConnectionKind.Door2)
     tiles.placeOnRandomTile(mySprite, tileUtil.door1)
@@ -309,6 +306,9 @@ controller.right.onEvent(ControllerButtonEvent.Pressed, function () {
     500,
     characterAnimations.rule(Predicate.MovingRight)
     )
+})
+info.onScore(1, function () {
+	
 })
 tileUtil.onMapLoaded(function (tilemap6) {
     if (tileUtil.currentTilemap() == tilemap1) {
